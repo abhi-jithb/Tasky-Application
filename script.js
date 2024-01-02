@@ -244,8 +244,6 @@ const saveEdit = (e) =>{
     const taskDescription = parentNode.childNodes[3].childNodes[5];
     const taskType = parentNode.childNodes[3].childNodes[7].childNodes[1];
     const submitButton = parentNode.childNodes[5].childNodes[1];
-    
-
     const updateData = {
         taskTitle: taskTitle.innerHTML,
         taskDescription: taskDescription.innerHTML,
