@@ -15,7 +15,7 @@
 
 <!-- btn for small screen_size -->
 <div class="add__new__btn__mobile__only d-md-none">
-     <button class="btn btn-outline-primary add__new__button__mobile__only" data-bs-toggle="modal" data-bs-target="#addNewModal" >
+     <button class="btn btn-outline-dark add__new__button__mobile__only" data-bs-toggle="modal" data-bs-target="#addNewModal" >
        <i class="fa-solid fa-plus mr-4"></i>Add items </button>
        <!-- copied -->
     
@@ -39,34 +39,33 @@
     <div id="imageDesc" class="form-text">It is opitonal</div>
   </div>
   <!-- Task Title -->
-   <div class="mb-3">
-    <label for="tags" class="form-label">Task Type</label>
-    <input type="text" class="form-control" id="tags" placeholder="Task Type!!" required>
-  </div>
-  <!-- Task Type -->
-    <div class="mb-3">
+ <div class="mb-3">
     <label for="taskTitle" class="form-label">Task Title</label>
     <input type="text" class="form-control" id="taskTitle" placeholder="Task Title!!" required>
   </div>
+
+  <!-- Task Type -->
+     <div class="mb-3">
+    <label for="tags" class="form-label">Task Type</label>
+    <input type="text" class="form-control" id="tags" placeholder="Task Type!!" required>
+  </div>
+
   <!-- Task Description -->
  <div class="mb-3">
     <label for="taskDescription" class="form-label">Task Description</label>
-    <textarea placeholder="Task Description!!" type="" class="form-control" id="taskDescription"  required></textarea>
+    <textarea placeholder="Task Description!!" type="text" class="form-control" id="taskDescription" rows="3" required></textarea>
     </div>
   </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" onclick="handleSubmit()">Save changes</button>
+        <button type="submit" class="btn btn-outline-dark" onclick="handleSubmit()">Add to Cart</button> 
       </div>
     </div>
   </div>
 </div>
 
 <!-- open Task model -->
-
-
-
 
 <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -92,7 +91,9 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Tasky Application
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -115,17 +116,15 @@
         <section class="mt-5">
           <div class="row justify-content-center">
 
-            <div class="col-6">
+            <div class="col-sm-12 col-md-6">
               <div class="input-group flex-nowrap shadow-lg rounded">
-              <input type="search" class="form-control" placeholder="Search your task here..." aria-label="search" aria-describedby="addon-wrapping"/>
+              <input type="search" class="form-control" placeholder="Search your task here..." aria-label="Search Task"
+               aria-describedby="addon-wrapping" oninput="searchTask.apply(this, arguments)"/>
               <span class="input-group-text" id="addon-wrapping">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </span>
               </div>
             </div>
-
-            <!-- <div class="col-md-6"></div> -->
-          <!-- </div> -->
         </section>
 
         <!-- card collections -->
