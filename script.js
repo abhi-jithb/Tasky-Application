@@ -59,39 +59,45 @@ const taskModal = document.querySelector(".task__model__body");
 // Card template
 // Back tick is used here (not single quote)
 
-
-
-const htmlTaskContent = ({id, title, description, type, url}) => `
-    <div class='col-md-6 col-lg-4 mt-3'  id=${id} key=${id}>
-        <div class='card shadow task__card'>
-            <div class='card-header d-flex gap-2 justify-content-end task__card__header'>
-                <button type='button' class='btn btn-outline-info mr-2' name=${id} onclick="editTask.apply(this, arguments)">
-                <i class='fas fa-pencil-alt name=${id}'></i></button>
-                <button type='button' class='btn btn-outline-danger mr-2' name=${id} onclick="deleteTask.apply(this, arguments)">
-                <i class='fas fa-trash-alt name=${id}'></i></button>
-            </div>
-            <div class='card-body'>
-                ${
-                    url ?
-                     `<img src=${url} alt='card image' class='card-img-top md-3 rounded-md' />`
-                     :
-                     `<img src="https://tse3.mm.bing.net/th?id=OIP.FjLkalx51D8xJcpixUGJywHaE8&pid=Api&P=0&h=180" alt='card image class='card-img-top md-3 rounded-md' />`
-                }
-                <h4 class='card-title task__card__title'>${title}</h4>
-                <p class='description trim-3-lines text-muted'>${description}</p>
+// 
+  const htmlTaskContent = ({id, title, description, type, url}) => `
+  <div class='col-md-6 col-lg-4 mt-3'  id=${id} key=${id}>
+     <div class='card shadow task__card'>
+        <div class='card-header d-flex gap-2 justify-content-end task__card__header'>
+                  <button type='button' class='btn btn-outline-info mr-2' name=${id} onclick="editTask.apply(this, arguments)">
+                  <i class='fas fa-pencil-alt'></i></button>
+              <button type='button' class='btn btn-outline-danger mr-2' name=${id} onclick="deleteTask.apply(this, arguments)">
+                  <i class='fas fa-trash-alt'></i></button>
+              </div>
+          <div class='card-body'>
+                  ${
+                  url ?
+                      `<img src=${url} alt='card image' class='card-img-top md-3 rounded-md' />`
+                      :
+                   `<img src="https://tse3.mm.bing.net/th?id=OIP.FjLkalx51D8xJcpixUGJywHaE8&pid=Api&P=0&h=180" alt='card image class='card-img-top md-3 rounded-md' />`
+                  }
+              
+               <h4 class='card-title task__card__title'>${title}</h4>
+               <p class='description trim-3-lines text-muted'>${description}</p>
                 <div class='tags d-flex flex-wrap'>
-                    <span class='badge text-white bg-primary m-1'>${type}</span>
+                  <span class='badge text-white
+                   bg-primary m-1'>${type}</span>
                 </div>
-            </div>
-           <div class='card-footer'>
-                <button type='button' class='btn btn-outline-primary float-end' data-bs-toggle="modal" 
-                data-bs-target="#showTask" id=${id} onclick='openTask.apply(this, arguments)'>Open Task</button>
-            </div>
-        </div>
-    </div>
-`
+              
+          </div>
+          
+      <div 
+      class='card-footer'>
+                  <button type='button' class='btn btn-outline-primary float-end' data-bs-toggle="modal" 
+                   data-bs-target="#showTask" id=${id} onclick='openTask.apply(this, arguments)'>Open Task</button>
+      </div>
+   </div>
+  </div>
+   `;
+
 // modal Body on click of OPEN TASK
 // to get enlarged view of image
+
 const htmlModalContent = ({ id, title, description, url}) =>{
  const date = new Date(parseInt(id));
  return `
@@ -288,15 +294,16 @@ const searchTask = (e) => {
     while(taskContents.firstChild){
         taskContents.removeChild(taskContents.firstChild);
     }
-    const resultData = state.taskList.filter(({title}) =>{
-        title.toLowerCase().includes(e.target.value.toLowerCase());
-    }); 
-
+    const resultData = state.taskList.filter(({title}) =>
+        title.toLowerCase().includes(e.target.value.toLowerCase())
+); 
     // console.log(resultData);
-    resultData.map((cardData) =>{
-        taskContents.insertAdjacentHTML("beforeend", htmlModalContent(cardData))
-    });
-};
+    resultData.map((cardData) =>
+        // taskContents.insertAdjacentHTML("beforeend", htmlModalContent(cardData))
+           taskContents.insertAdjacentHTML("beforeend", htmlTaskContent(cardData))
 
+        );
+};
+// 
 
 
