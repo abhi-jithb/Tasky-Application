@@ -297,7 +297,7 @@ const searchTask = (e) => {
     const resultData = state.taskList.filter(({title}) =>
         title.toLowerCase().includes(e.target.value.toLowerCase())
 ); 
-    console.log(resultData);
+    // console.log(resultData);
     resultData.map((cardData) =>
         // taskContents.insertAdjacentHTML("beforeend", htmlModalContent(cardData))
            taskContents.insertAdjacentHTML("beforeend", htmlTaskContent(cardData))
